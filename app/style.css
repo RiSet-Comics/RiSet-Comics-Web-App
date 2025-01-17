@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+}
+
+#app {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.left {
+  width: 70%;
+  background-color: rgb(119, 115, 115);
+}
+
+h1 {
+  color: rgb(0, 108, 163);
+  background-color: black;
+  font-style: italic;
+  font-size: 50px;
+  margin-top: 0px;
+  padding: 25px;
+  border-bottom: solid;
+}
+
+.right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  background-color: rgb(219, 219, 132);
+  height: 50%;
+}
+
+.bottom {
+  height: 50%;
+}
