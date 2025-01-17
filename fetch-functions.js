@@ -1,7 +1,7 @@
 export const getRandomComic = async () => {
   // get random number from 1 - 3038
   const randomComicNumber = Math.floor(Math.random() * 3038) + 1;
-  const url = 'https://xkcd.vercel.app/?comic=${randomComicNumber}';
+  const url = `https://xkcd.vercel.app/?comic=${randomComicNumber}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -11,7 +11,7 @@ export const getRandomComic = async () => {
     const comic = {
       title: data.title,
       img: data.img,
-      alt: data.alt,
+      transcript: data.transcript,
     };
     return comic;
   } catch (error) {
