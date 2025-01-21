@@ -1,47 +1,37 @@
-// //RENDER COMIC
-// export const renderComicInfo = (comicAreaDiv, responseDataObj) => {
-//   comicAreaDiv.innerHTML = " ";
-//   const { day, img, num, title, transcript, year } = responseDataObj;
+import { fetchRandomComic } from "./fetch-functions";
 
-//   //RiSet Comics H1
-//   const h1 = document.createElement("h1");
-//   h1.textContent = "Riset Comics";
-
-//   //Comic Title H2
-//   const h2 = document.createElement("h2");
-//   h2.id = "comic-title";
-//   h2.className = "comic-title";
-//   h2.textContent = title;
-
-//   //Comic Image
-//   const comicImg = document.createElement("img");
-//   comicImg.id = "comic-img";
-//   comicImg.src = img;
-
-//   //Transcript P
-//   const p = document.createElement("p");
-//   p.id = "transcript-text";
-//   p.textContent = transcript;
-
-//   //ChangeComic
-//   const nextComicBtn = document.createElement("button");
-//   nextComicBtn.id = "next-comic-btn";
-//   nextComicBtn.className = "next-comic-btn";
-//   nextComicBtn.textContent = "Next Comic";
-//   comicAreaDiv.appendChild(nextComicBtn);
-
-//   //push to DOM
-//   comicAreaDiv.append(h1, h2, comicImg, p, nextComicBtn);
-// };
-
-export const renderComicInfo = (comicAreaDiv, comic) => {
+export const renderComicInfo = async (comicAreaDiv, comic) => {
+  comicAreaDiv.innerHTML = "";
+  // RiSet Comics H1
   const h1 = document.createElement("h1");
   h1.textContent = "Riset Comics";
-  comicAreaDiv.append(h1);
 
-  comicAreaDiv.innerHTML = `
-    <h2>${comic.title}</h2>
-    <img src="${comic.img}" alt="${comic.title}" >
-    <p>${comic.transcript}</p>
-  `;
+  //Comic Title H2
+  const h2 = document.createElement("h2");
+  h2.id = "comic-title";
+  h2.className = "comic-title";
+  h2.textContent = comic.title;
+
+  //Comic Image
+  const comicImg = document.createElement("img");
+  comicImg.id = "comic-img";
+  comicImg.src = comic.img;
+
+  //Transcript P
+  const p = document.createElement("p");
+  p.id = "transcript-text";
+  p.textContent = comic.transcript;
+
+  //ChangeComic
+  const button = document.createElement("button");
+  button.id = "next-comic-btn";
+  button.textContent = "Next Comic";
+
+  //push to DOM
+  comicAreaDiv.append(h1, h2, comicImg, p, button);
+
+  button.addEventListener("click", () => {
+    console.log("click has occured");
+    fetchRandomComic(comicAreaDiv, renderComicInfo);
+  });
 };
