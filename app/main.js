@@ -1,10 +1,14 @@
 import "./style.css";
-import { getResponse, getResponseData } from "./fetch-functions";
-import { renderComicInfo, getNextComic } from "./render-functions";
+import { fetchComic } from "./fetch-functions";
+import { renderComicInfo } from "./render-functions";
 
-const comicArea = document.querySelector("#Comics-section");
-const main = () => {};
+const main = () => {
+  let num = 1;
+  const comicArea = document.querySelector("#Comics-section");
 
-getResponseData().then((data) => {
-  renderComicInfo(comicArea, data);
-});
+  fetchComic(num, comicArea, renderComicInfo);
+  const switchComic = document.querySelector("#next-comic-btn");
+  switchComic.addEventListener("click", () => num++);
+};
+
+main();

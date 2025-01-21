@@ -1,7 +1,4 @@
 //RENDER COMIC
-const comicArea = document.querySelector("#Comics-section");
-// const comicImg = document.querySelector("#comic-image");
-
 export const renderComicInfo = (comicAreaDiv, responseDataObj) => {
   comicAreaDiv.innerHTML = " ";
   const { day, img, num, title, transcript, year } = responseDataObj;
@@ -26,13 +23,13 @@ export const renderComicInfo = (comicAreaDiv, responseDataObj) => {
   p.id = "transcript-text";
   p.textContent = transcript;
 
+  //ChangeComic
+  const nextComicBtn = document.createElement("button");
+  nextComicBtn.id = "next-comic-btn";
+  nextComicBtn.className = "next-comic-btn";
+  nextComicBtn.textContent = "Next Comic";
+  comicAreaDiv.appendChild(nextComicBtn);
+
   //push to DOM
-  comicAreaDiv.append(h1, h2, comicImg, p);
+  comicAreaDiv.append(h1, h2, comicImg, p, nextComicBtn);
 };
-
-getResponseData().then((data) => {
-  renderComicInfo(comicArea, data);
-});
-
-//GENERATE NEW COMIC
-export const getNextComic = () => {};
