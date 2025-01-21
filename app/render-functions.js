@@ -35,9 +35,13 @@
 // };
 
 export const renderComicInfo = (comicAreaDiv, comic) => {
+  const h1 = document.createElement("h1");
+  h1.textContent = "Riset Comics";
+  comicAreaDiv.append(h1);
+
   comicAreaDiv.innerHTML = `
     <h2>${comic.title}</h2>
-    <img src="${comic.img}" alt="${comic.title}">
+    <img src="${comic.img}" alt="${comic.title}" >
     <p>${comic.transcript}</p>
   `;
 };
