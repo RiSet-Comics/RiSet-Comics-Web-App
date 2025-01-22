@@ -1,5 +1,6 @@
 import { fetchRandomComic } from "./fetch-functions";
 
+//RENDER COMIC
 export const renderComicInfo = async (comicAreaDiv, comic) => {
   comicAreaDiv.innerHTML = "";
   // RiSet Comics H1
@@ -14,24 +15,55 @@ export const renderComicInfo = async (comicAreaDiv, comic) => {
 
   //Comic Image
   const comicImg = document.createElement("img");
-  comicImg.id = "comic-img";
+  comicImg.className = "comic-img";
   comicImg.src = comic.img;
+  comicImg.alt = comic.transcript;
 
   //Transcript P
   const p = document.createElement("p");
-  p.id = "transcript-text";
-  p.textContent = comic.transcript;
+  p.id = "text";
+  p.textContent = "Some Text";
 
   //ChangeComic
   const button = document.createElement("button");
   button.id = "next-comic-btn";
+  button.className = "next-comic-btn";
   button.textContent = "Next Comic";
 
   //push to DOM
-  comicAreaDiv.append(h1, h2, comicImg, p, button);
+  comicAreaDiv.append(h1, comicImg, h2, p, button);
 
   button.addEventListener("click", () => {
-    console.log("click has occured");
     fetchRandomComic(comicAreaDiv, renderComicInfo);
   });
+};
+
+//RENDER SUNRISE DATA && WEATHER DATA
+export const renderWeatherData = (forecastDiv, data) => {
+  // Sunrise and Sunset Section
+  const sunriseDiv = document.querySelector("#sunrise-data");
+  sunriseDiv.innerHTML = `
+    <h2>Sunrise & Sunset</h2>
+    <p><strong>Sunrise:</strong> ${data.sunrise}</p>
+    <p><strong>Sunset:</strong> ${data.sunset}</p>
+  `;
+
+  // Get the real-time clock using (toLocaleTimeString())
+  const updateTime = () => {
+    const now = new Date(); //This will give us  2025-01-22T18:52:54.393Z
+    const currentTime = now.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    forecastDiv.innerHTML = `
+      <h2>Current Weather</h2>
+      <p><strong>Time:</strong> ${currentTime} (${data.timezone})</p>
+      <p><strong>Temperature:</strong> ${data.temperature} ${data.temperature_measurement}</p>
+      <p><strong>Wind Speed:</strong> ${data.windspeed} ${data.windspeed_measurement}</p>
+    `;
+  };
+
+  updateTime(); // Run immediately
+  setInterval(updateTime, 1000); // Update time every second
 };

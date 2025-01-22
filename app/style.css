@@ -12,12 +12,20 @@ body {
 
 .left {
   width: 70%;
-  background-color: rgb(119, 115, 115);
+  background-color: rgb(197, 190, 190);
+  display: flex;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: snowman;
+  src: url(snowman.ttf);
 }
 
 h1 {
   color: rgb(0, 108, 163);
   background-color: black;
+  font-family: snowman;
   font-style: italic;
   font-size: 50px;
   margin-top: 0px;
@@ -25,15 +33,21 @@ h1 {
   border-bottom: solid;
 }
 
+.comic-img {
+  height: 500px;
+  width: 500px;
+}
+
 .next-comic-btn {
-  background-color: gray;
-  border: solid black;
+  background-color: black;
+  border: solid rgb(255, 255, 255);
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  width: 100px;
 }
 
 .right {

@@ -26,3 +26,41 @@ export const fetchRandomComic = async (comicAreaDiv, callback) => {
     callback(comicAreaDiv, comic);
   }
 };
+
+//FETCH SUNRISE DATA
+const getSunriseData = () => {
+  const url1 =
+    "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
+  const url2 =
+    "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
+
+  return fetch(url2)
+    .then((data) => data.json())
+    .then((parsedData) => {
+      console.log(parsedData);
+      return parsedData;
+    });
+};
+
+//FETCH WEATHER DATA
+export const getWeatherData = () => {
+  const url1 =
+    "  https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York&forecast_days=1";
+  return fetch(url1)
+    .then((data) => data.json())
+    .then((parsedData) => {
+      console.log(parsedData);
+      const obj = {
+        time: parsedData.current.time.slice(11),
+        timezone: parsedData.timezone,
+        temperature: parsedData.current.temperature_2m,
+        temperature_measurement: parsedData.current_units.temperature_2m,
+        windspeed: parsedData.current.wind_speed_10m,
+        windspeed_measurement: parsedData.current_units.wind_speed_10m,
+        sunrise: parsedData.daily.sunrise[0].slice(11),
+        sunset: parsedData.daily.sunset[0].slice(11),
+      };
+      console.log(obj);
+      return obj;
+    });
+};
