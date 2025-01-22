@@ -1,41 +1,41 @@
-import { fetchRandomComic } from './fetch-functions';
-import { fetchSunriseSunset } from './fetch-functions';
+import { fetchRandomComic } from "./fetch-functions";
+import { fetchSunriseSunset } from "./fetch-functions";
 
 export const renderComicInfo = async (comicAreaDiv, comic) => {
-  comicAreaDiv.innerHTML = '';
+  comicAreaDiv.innerHTML = "";
   // RiSet Comics H1
-  const h1 = document.createElement('h1');
-  h1.textContent = 'Riset Comics';
+  const h1 = document.createElement("h1");
+  h1.textContent = "Riset Comics";
 
   //Comic Title H2
-  const h2 = document.createElement('h2');
-  h2.id = 'comic-title';
-  h2.className = 'comic-title';
+  const h2 = document.createElement("h2");
+  h2.id = "comic-title";
+  h2.className = "comic-title";
   h2.textContent = comic.title;
 
   // Comic Image
-  const comicImg = document.createElement('img');
-  comicImg.id = 'comic-img';
+  const comicImg = document.createElement("img");
+  comicImg.id = "comic-img";
   comicImg.src = comic.img;
-  comicImg.style.width = '1700px';
-  comicImg.style.height = 'auto';
-  comicImg.style.maxHeight = '485px';
+  comicImg.style.width = "1700px";
+  comicImg.style.height = "auto";
+  comicImg.style.maxHeight = "485px";
 
   //Transcript P
-  const p = document.createElement('p');
-  p.id = 'transcript-text';
-  p.textContent = ' ';
+  const p = document.createElement("p");
+  p.id = "transcript-text";
+  p.textContent = " ";
 
   //ChangeComic
-  const button = document.createElement('button');
-  button.id = 'next-comic-btn';
-  button.textContent = 'Next Comic';
+  const button = document.createElement("button");
+  button.id = "next-comic-btn";
+  button.textContent = "Next Comic";
 
   //push to DOM
   comicAreaDiv.append(h1, h2, comicImg, p, button);
 
-  button.addEventListener('click', () => {
-    console.log('click has occurred');
+  button.addEventListener("click", () => {
+    console.log("click has occurred");
     fetchRandomComic(comicAreaDiv, renderComicInfo);
   });
 };
@@ -48,26 +48,26 @@ export const renderComicInfo = async (comicAreaDiv, comic) => {
 
 const getFormattedDate = (date) => {
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
 
 const getDayName = (date) => {
   const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   return days[date.getDay()];
 };
 
 export const renderSunriseSunset = async (sunriseSunsetDiv) => {
-  sunriseSunsetDiv.innerHTML = '';
+  sunriseSunsetDiv.innerHTML = "";
 
   for (let i = 0; i < 7; i++) {
     const date = new Date();
@@ -78,42 +78,54 @@ export const renderSunriseSunset = async (sunriseSunsetDiv) => {
     const data = await fetchSunriseSunset(formattedDate);
     if (data) {
       // Create a single card for both Sunrise and Sunset
-      const sunCard = document.createElement('div');
-      sunCard.className = 'card sun-card';
+      const sunCard = document.createElement("div");
+      sunCard.className = "card sun-card";
 
       // Date and Day Name
-      const dateTitle = document.createElement('h2');
+      const dateTitle = document.createElement("h2");
       dateTitle.textContent = `${dayName}, ${formattedDate}`;
       sunCard.appendChild(dateTitle);
 
       // Sunrise Title and Time
-      const sunriseTitle = document.createElement('h3');
-      sunriseTitle.textContent = 'Sunrise';
+      const sunriseTitle = document.createElement("h3");
+      sunriseTitle.textContent = "Sunrise";
       sunCard.appendChild(sunriseTitle);
 
-      const sunriseTime = document.createElement('p');
-      sunriseTime.id = 'sunrise-time';
-      sunriseTime.className = 'sunrise-time';
+      const sunriseTime = document.createElement("p");
+      sunriseTime.id = "sunrise-time";
+      sunriseTime.className = "sunrise-time";
       sunriseTime.textContent = `Time: ${data.sunrise}`;
       sunCard.appendChild(sunriseTime);
 
       // Sunset Title and Time
-      const sunsetTitle = document.createElement('h3');
-      sunsetTitle.textContent = 'Sunset';
+      const sunsetTitle = document.createElement("h3");
+      sunsetTitle.textContent = "Sunset";
       sunCard.appendChild(sunsetTitle);
 
-      const sunsetTime = document.createElement('p');
-      sunsetTime.id = 'sunset-time';
-      sunsetTime.className = 'sunset-time';
+      const sunsetTime = document.createElement("p");
+      sunsetTime.id = "sunset-time";
+      sunsetTime.className = "sunset-time";
       sunsetTime.textContent = `Time: ${data.sunset}`;
       sunCard.appendChild(sunsetTime);
 
       // Append the card to the div
       sunriseSunsetDiv.appendChild(sunCard);
     } else {
-      const errorMessage = document.createElement('p');
+      const errorMessage = document.createElement("p");
       errorMessage.textContent = `Error fetching data for ${dayName}, ${formattedDate}`;
       sunriseSunsetDiv.appendChild(errorMessage);
     }
   }
+};
+
+//PLACE THIS IN A FUNCTION THAT RENDERS ADN YOU CAN USE THE 'CurrentTime' VARIABLE TO DISPLAY TIME
+const updateTime = () => {
+  const now = new Date(); //This will give us  2025-01-22T18:52:54.393Z
+  const currentTime = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  updateTime(); // Run immediately
+  setInterval(updateTime, 1000); // Update time every second '1000ms'
 };
