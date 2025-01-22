@@ -22,7 +22,7 @@ export const renderComicInfo = async (comicAreaDiv, comic) => {
   //Transcript P
   const p = document.createElement("p");
   p.id = "text";
-  p.textContent = "Some Text";
+  p.textContent = "Some Random text, idk where to put it";
 
   //ChangeComic
   const button = document.createElement("button");
