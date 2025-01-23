@@ -24,7 +24,7 @@ export const getRandomComic = async () => {
 export const fetchRandomComic = async (comicAreaDiv, callback) => {
   const comic = await getRandomComic();
   if (comic) {
-    callback(comicAreaDiv, comic);
+    callback(comicAreaDiv, comic); //cb
   }
 };
 
