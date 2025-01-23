@@ -2,37 +2,40 @@ import { fetchRandomComic } from "./fetch-functions";
 
 //RENDER COMIC
 export const renderComicInfo = async (comicAreaDiv, comic) => {
-  comicAreaDiv.innerHTML = "";
-  // RiSet Comics H1
-  const h1 = document.createElement("h1");
-  h1.textContent = "Riset Comics";
+  // comicAreaDiv.innerHTML = "";
+  // // RiSet Comics H1
+  // const h1 = document.createElement("h1");
+  // h1.textContent = "Riset Comics";
 
   //Comic Title H2
-  const h2 = document.createElement("h2");
-  h2.id = "comic-title";
-  h2.className = "comic-title";
+  const h2 = document.querySelector("#comic-title");
+  // const h2 = document.createElement("h2");
+  // h2.id = "comic-title";
+  // h2.className = "comic-title";
   h2.textContent = comic.title;
 
   //Comic Image
-  const comicImg = document.createElement("img");
-  comicImg.className = "comic-img";
+  const comicImg = document.querySelector("#comic-img");
+  // const comicImg = document.createElement("img");
+  // comicImg.className = "comic-img";
   comicImg.src = comic.img;
   comicImg.alt = comic.transcript;
 
-  //Transcript P
-  const p = document.createElement("p");
-  p.id = "text";
-  p.textContent = "Some Random text, idk where to put it";
+  // //Transcript P
+  // const p = document.createElement("p");
+  // p.id = "text";
+  // p.textContent = "Some Random text, idk where to put it";
 
   //ChangeComic
-  const button = document.createElement("button");
-  button.id = "next-comic-btn";
-  button.className = "next-comic-btn";
-  button.textContent = "Next Comic";
+  // const button = document.createElement("button");
+  // button.id = "next-comic-btn";
+  // button.className = "next-comic-btn";
+  // button.textContent = "Next Comic";
 
   //push to DOM
-  comicAreaDiv.append(h1, comicImg, h2, p, button);
+  // comicAreaDiv.append(comicImg);
 
+  const button = document.querySelector("#next-comic-btn");
   button.addEventListener("click", () => {
     fetchRandomComic(comicAreaDiv, renderComicInfo);
   });
@@ -44,8 +47,8 @@ export const renderWeatherData = (forecastDiv, data) => {
   const sunriseDiv = document.querySelector("#sunrise-data");
   sunriseDiv.innerHTML = `
     <h2>Sunrise & Sunset</h2>
-    <p><strong>Sunrise:</strong> ${data.sunrise}</p>
-    <p><strong>Sunset:</strong> ${data.sunset}</p>
+    <p><strong>Sunrise:</strong> ${data.sunrise} AM</p>
+    <p><strong>Sunset:</strong> ${data.sunset} PM</p>
   `;
 
   // Get the real-time clock using (toLocaleTimeString())

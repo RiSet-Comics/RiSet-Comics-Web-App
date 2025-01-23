@@ -1,78 +1,17 @@
-/* body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-}
-
-#app {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.left {
-  width: 70%;
-  background-color: rgb(197, 190, 190);
-  display: flex;
-  flex-direction: column;
-}
-
-@font-face {
-  font-family: snowman;
-  src: url(snowman.ttf);
-}
-
-h1 {
-  color: rgb(0, 108, 163);
-  background-color: black;
-  font-family: snowman;
-  font-style: italic;
-  font-size: 50px;
-  margin-top: 0px;
-  padding: 25px;
-  border-bottom: solid;
-}
-
-.comic-img {
-  height: 500px;
-  width: 500px;
-}
-
-.next-comic-btn {
-  background-color: black;
-  border: solid rgb(255, 255, 255);
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 100px;
-}
-
-.right {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-}
-
-.top {
-  background-color: rgb(219, 219, 132);
-  height: 50%;
-}
-
-.bottom {
-  height: 50%;
-} */
-
 /* General Page Styling */
 body {
   margin: 0;
+  padding: 0;
   height: 100vh;
   display: flex;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5; /* Light gray background */
   color: #333; /* Dark gray text */
+}
+
+@font-face {
+  font-family: snowman;
+  src: url(snowman.ttf);
 }
 
 #app {
@@ -83,18 +22,28 @@ body {
 /* Left Section - Comics */
 .left {
   width: 70%;
-  background-color: white; /* White background for comics */
+  background-color: rgb(195, 167, 167);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-top: 0%;
   position: relative;
   overflow: hidden;
+  border: solid yellow;
+}
+
+#comic-content {
+  align-self: center;
+  border: solid purple;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  padding: 15px;
 }
 
 /* Comic Title */
 .comic-title {
-  font-size: 24px;
+  font-size: 35px;
   text-align: center;
   margin: 10px 0;
 }
@@ -102,8 +51,8 @@ body {
 /* Comic Image Styling */
 .comic-img {
   max-width: 100%;
-  max-height: 60vh; /* Prevents it from taking over the page */
-  object-fit: contain;
+  max-height: 60vh;
+  object-fit: contain; /*research*/
 }
 
 /* Keep "Next Comic" Button Fixed at Bottom */
@@ -117,6 +66,7 @@ body {
 
 /* Button Styling */
 .next-comic-btn {
+  align-self: center;
   background-color: black;
   border: none;
   color: white;
@@ -141,7 +91,7 @@ body {
 
 /* Sunrise & Sunset Section */
 .top {
-  background-color: #e0e0e0; /* Light gray */
+  background-color: #e0e0e0;
   padding: 15px;
   border-radius: 8px;
   text-align: center;
@@ -157,12 +107,25 @@ body {
 }
 
 /* Headings */
-h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+h1 {
+  align-self: start;
+  font-size: 50px;
+  font-family: snowman;
+  font-style: italic;
+  border: solid green;
+  max-width: 350px;
+  height: 65px;
 }
 
-/* Paragraph Styling */
+h2 {
+  font-family: snowman;
+  font-style: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+  border: red solid;
+}
+
+/* Paragraph */
 p {
   font-size: 16px;
   margin: 5px 0;

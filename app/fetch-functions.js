@@ -13,6 +13,7 @@ export const getRandomComic = async () => {
       img: data.img,
       transcript: data.transcript,
     };
+    console.log(comic);
     return comic;
   } catch (error) {
     console.warn(error.message);
@@ -27,20 +28,20 @@ export const fetchRandomComic = async (comicAreaDiv, callback) => {
   }
 };
 
-//FETCH SUNRISE DATA
-const getSunriseData = () => {
-  const url1 =
-    "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
-  const url2 =
-    "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
+// //FETCH SUNRISE DATA
+// const getSunriseData = () => {
+//   const url1 =
+//     "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
+//   const url2 =
+//     "https://api.sunrise-sunset.org/json?lat=40.660583&lng=-73.948090&date=today";
 
-  return fetch(url2)
-    .then((data) => data.json())
-    .then((parsedData) => {
-      console.log(parsedData);
-      return parsedData;
-    });
-};
+//   return fetch(url2)
+//     .then((data) => data.json())
+//     .then((parsedData) => {
+//       console.log(parsedData);
+//       return parsedData;
+//     });
+// };
 
 //FETCH WEATHER DATA
 export const getWeatherData = () => {

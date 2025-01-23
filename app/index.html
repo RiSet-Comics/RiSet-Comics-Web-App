@@ -1,33 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image"
-      href="https://png.pngtree.com/png-clipart/20201209/original/pngtree-sun-png-clipart-colored-png-image_5656301.png"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RiSet Comics</title>
-  </head>
-  <body>
-    <div id="app">
-
-      <div id="Comics-section" class="left">
-      </div>
-
-      <div id="Forecast-section" class="right">
-      <div class='top' id="sunrise-data">
-  
-      </div>
-      <div class="bottom" id="weather-Data"></div>
-    </div>
-
-    <script type="module" src="main.js"></script>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,13 +15,27 @@
     <div id="app">
       <!-- Comics Section -->
       <div id="Comics-section" class="left">
-        <h1>RiSet Comics</h1>
+        <!-- H1 Header -->
+        <header>
+          <h1>RiSet Comics</h1>
+        </header>
+
         <div id="comic-content">
-          <!-- Comic will be inserted here -->
+          <!-- Comic will go here -->
+          <img
+            id="comic-img"
+            class="comic-img"
+            src="https://imgs.xkcd.com/comics/upside_down_map.png"
+            alt="A map of the world upside down"
+          />
+          <h2 id="comic-title" class="comic-title">Upside Down Map</h2>
         </div>
+
+        <!-- Comic Button -->
         <div class="comic-controls">
           <button id="next-comic-btn" class="next-comic-btn">Next Comic</button>
         </div>
+        <!-- End of comic section -->
       </div>
 
       <!-- Weather Section -->
@@ -62,6 +46,7 @@
         <div class="bottom" id="weather-Data">
           <!-- Weather Data -->
         </div>
+        <!-- End of weather section -->
       </div>
     </div>
 
