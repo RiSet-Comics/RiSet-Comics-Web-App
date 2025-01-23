@@ -1,10 +1,10 @@
-import './style.css';
-import { fetchRandomComic, fetchSunriseSunset } from './fetch-functions';
-import { renderComicInfo, renderSunriseSunset } from './render-functions';
+import "./style.css";
+import { fetchRandomComic, fetchSunriseSunset } from "./fetch-functions";
+import { renderComicInfo, renderSunriseSunset } from "./render-functions";
 
 const main = () => {
-  const comicArea = document.querySelector('#Comics-section');
-  const sunriseSunsetArea = document.querySelector('#SunriseSunset-section');
+  const comicArea = document.querySelector("#Comics-section");
+  const sunriseSunsetArea = document.querySelector("#SunriseSunset-section");
 
   // Fetch and render a random comic initially
   fetchRandomComic(comicArea, renderComicInfo);

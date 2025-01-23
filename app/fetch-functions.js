@@ -5,7 +5,7 @@ export const getRandomComic = async () => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Failed to get comic book');
+      throw new Error("Failed to get comic book");
     }
     const data = await response.json();
     const comic = {
@@ -32,14 +32,14 @@ export const fetchSunriseSunset = async (date) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    if (data.status === 'OK') {
+    if (data.status === "OK") {
       const sunriseSunset = {
         sunrise: data.results.sunrise,
         sunset: data.results.sunset,
       };
       return sunriseSunset;
     } else {
-      console.warn('Error fetching sunrise and sunset data');
+      console.warn("Error fetching sunrise and sunset data");
       return null;
     }
   } catch (error) {

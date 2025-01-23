@@ -1,0 +1,146 @@
+/* General Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: #666666;
+  color: #333;
+}
+
+@font-face {
+  font-family: snowman;
+  src: url(./fonts&images/snowman.ttf);
+}
+@font-face {
+  font-family: Komigo;
+  src: url(./fonts&images/Komigo3D-Regular.ttf);
+}
+
+#app {
+  display: flex;
+  width: 100%;
+}
+
+/* Left Section - Comics */
+.left {
+  width: 70%;
+  background-color: #666666;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  padding-left: 20px;
+  padding-top: 0%;
+  position: relative;
+  overflow: hidden;
+}
+
+#comic-content {
+  align-self: center;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  padding: 15px;
+}
+
+/* Comic Title */
+.comic-title {
+  font-size: 35px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Comic Image Styling */
+.comic-img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain; /*research*/
+}
+
+/* Keep Button Fixed at Bottom */
+.comic-controls {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button Styling */
+.next-comic-btn {
+  align-self: center;
+  background-color: rgb(69, 69, 69);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.next-comic-btn:hover {
+  background-color: gray;
+}
+
+/* Right Section - Weather */
+.right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Sunrise & Sunset Section */
+.top {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Current Weather Data */
+.bottom {
+  background-color: #d9d9d9; /* darker gray */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.sunrise-data {
+  align-self: end;
+}
+
+.sunrise-img,
+.sunset-img,
+.thermometer-img,
+.windy-img,
+.clock-img {
+  max-width: 35px;
+  max-height: 35px;
+  object-fit: contain;
+}
+
+/* Headings */
+h1 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-self: start;
+  font-size: 70px;
+  font-family: komigo;
+  font-style: italic;
+}
+
+h2 {
+  font-family: snowman;
+  font-style: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
