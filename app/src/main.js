@@ -11,8 +11,12 @@ const main = async () => {
   const weatherData = await getWeatherData();
   renderWeatherData(weatherDiv, weatherData);
 
-  // Fetch and render a random comic initially
-  fetchRandomComic(comicContentDiv, renderComicInfo);
+  // Fetch and render a random comic
+  // fetchRandomComic(comicContentDiv, renderComicInfo);
+  const button = document.querySelector("#next-comic-btn");
+  button.addEventListener("click", async () => {
+    await fetchRandomComic(comicContentDiv, renderComicInfo);
+  });
 };
 
 main();

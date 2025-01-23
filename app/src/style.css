@@ -11,7 +11,11 @@ body {
 
 @font-face {
   font-family: snowman;
-  src: url(snowman.ttf);
+  src: url(./fonts&images/snowman.ttf);
+}
+@font-face {
+  font-family: Komigo;
+  src: url(./fonts&images/Komigo3D-Regular.ttf);
 }
 
 #app {
@@ -22,7 +26,7 @@ body {
 /* Left Section - Comics */
 .left {
   width: 70%;
-  background-color: rgb(195, 167, 167);
+  background-color: #e8e6e6;
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -30,7 +34,6 @@ body {
   padding-top: 0%;
   position: relative;
   overflow: hidden;
-  border: solid yellow;
 }
 
 #comic-content {
@@ -108,13 +111,13 @@ body {
 
 /* Headings */
 h1 {
+  margin-top: 0;
+  margin-bottom: 0;
   align-self: start;
-  font-size: 50px;
-  font-family: snowman;
+  font-size: 70px;
+  font-family: komigo;
   font-style: italic;
   border: solid green;
-  max-width: 350px;
-  height: 65px;
 }
 
 h2 {
