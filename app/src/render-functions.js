@@ -35,7 +35,7 @@ export const renderWeatherData = (forecastDiv, data) => {
     // Sunrise and Sunset Section
     const sunriseDiv = document.querySelector("#sunrise-data");
     sunriseDiv.innerHTML = `
-    <h2>Sunrise & Sunset</h2>
+    <h2  class="ss-heading" >Sunrise & Sunset</h2>
     <img class='sunrise-img' src="../src/fonts&images/sunrise.png">
     <p class='sunrise-data'><strong>Sunrise:</strong> ${data.sunrise} AM</p>
     <img class='sunset-img' src="../src/fonts&images/sunrise.png">

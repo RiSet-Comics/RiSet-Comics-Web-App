@@ -31,7 +31,7 @@ export const fetchRandomComic = async (comicAreaDiv, callback) => {
 //FETCH WEATHER DATA
 export const getWeatherData = () => {
   const url1 =
-    "  https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York&forecast_days=1";
+    "https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&daily=sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York";
   return fetch(url1)
     .then((data) => data.json())
     .then((parsedData) => {
