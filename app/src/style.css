@@ -38,7 +38,6 @@ body {
 
 #comic-content {
   align-self: center;
-  border: solid purple;
   border-radius: 8px;
   background-color: #e0e0e0;
   padding: 15px;
@@ -70,7 +69,7 @@ body {
 /* Button Styling */
 .next-comic-btn {
   align-self: center;
-  background-color: black;
+  background-color: rgb(69, 69, 69);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -105,19 +104,33 @@ body {
   background-color: #d9d9d9; /* Slightly darker gray */
   padding: 15px;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
+}
+
+.sunrise-data {
+  align-self: end;
+}
+
+.sunrise-img,
+.sunset-img,
+.thermometer-img,
+.windy-img,
+.clock-img {
+  max-width: 35px;
+  max-height: 35px;
+  object-fit: contain;
 }
 
 /* Headings */
 h1 {
+  color: #454444;
   margin-top: 0;
   margin-bottom: 0;
   align-self: start;
   font-size: 70px;
   font-family: komigo;
   font-style: italic;
-  border: solid green;
 }
 
 h2 {
@@ -125,7 +138,6 @@ h2 {
   font-style: bold;
   font-size: 30px;
   margin-bottom: 10px;
-  border: red solid;
 }
 
 /* Paragraph */

@@ -22,16 +22,24 @@ export const renderWeatherData = (forecastDiv, data) => {
 
     forecastDiv.innerHTML = `
         <h2>Current Weather</h2>
+        
+        <img class='clock-img' src="../src/fonts&images/clock.png">
         <p><strong>Time:</strong> ${currentTime} (${data.timezone})</p>
+
+        <img class='thermometer-img' src="../src/fonts&images/thermometer.png">
         <p><strong>Temperature:</strong> ${data.temperature} ${data.temperature_measurement}</p>
+            
+        <img class='windy-img' src="../src/fonts&images/windy.png">
         <p><strong>Wind Speed:</strong> ${data.windspeed} ${data.windspeed_measurement}</p>
       `;
     // Sunrise and Sunset Section
     const sunriseDiv = document.querySelector("#sunrise-data");
     sunriseDiv.innerHTML = `
     <h2>Sunrise & Sunset</h2>
-    <p><strong>Sunrise:</strong> ${data.sunrise} AM</p>
-    <p><strong>Sunset:</strong> ${data.sunset} PM</p>
+    <img class='sunrise-img' src="../src/fonts&images/sunrise.png">
+    <p class='sunrise-data'><strong>Sunrise:</strong> ${data.sunrise} AM</p>
+    <img class='sunset-img' src="../src/fonts&images/sunrise.png">
+    <p class='sunrise-data'><strong>Sunset:</strong> ${data.sunset} PM</p>
   `;
   };
 
