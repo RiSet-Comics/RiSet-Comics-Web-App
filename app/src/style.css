@@ -11,11 +11,11 @@ body {
 
 @font-face {
   font-family: snowman;
-  src: url(./fonts&images/snowman.ttf);
+  src: url(/fonts&images/snowman.ttf);
 }
 @font-face {
   font-family: Komigo;
-  src: url(./fonts&images/Komigo3D-Regular.ttf);
+  src: url(/fonts&images/Komigo3D-Regular.ttf);
 }
 
 #app {
